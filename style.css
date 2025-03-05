@@ -24,13 +24,27 @@
 .nav-items > ul {
   display: flex;
 }
-.res-container {
-  height: 300px;
-  width: 200px;
-  border: 1px solid black;
-  padding: 5px;
+.search-container {
+  padding: 10px;
 }
-.img {
-  height: 200px;
+.res-card {
+  height: fit-content;
+  width: 220px;
+  margin: 15px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+.res-card:hover {
+  border: 1px solid black;
+}
+.res-logo {
+  height: 170px;
   width: 100%;
+  border-radius: 10px;
+}
+.res-container {
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }

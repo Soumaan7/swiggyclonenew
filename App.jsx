@@ -22,11 +22,35 @@ const Header = () => {
     </div>
   );
 };
+const ResCard = () => {
+  return (
+    <div className="res-card">
+      <img
+        className="img"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/7/17/449ee9f8-c70d-4178-a49b-c477dfec308b_319232.jpg"
+        alt="logo"
+      />
+      <h3>Kfc</h3>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div>
+      <div className="search-container">Search</div>
+      <div className="res-container">
+        <ResCard />
+      </div>
+    </div>
+  );
+};
 
 const AppLayout = () => {
   return (
     <div>
       <Header />
+      <Body />
     </div>
   );
 };

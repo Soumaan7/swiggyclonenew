@@ -37,6 +37,7 @@
 }
 .res-card:hover {
   border: 1px solid black;
+  cursor: pointer;
 }
 .res-logo {
   height: 170px;

@@ -20,7 +20,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listOfRes.map((data) => (
-          <ResCard key={data.info.id} resData={data} />
+          <ResCard resData={data} />
         ))}
       </div>
     </div>

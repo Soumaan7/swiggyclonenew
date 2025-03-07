@@ -7,6 +7,7 @@ const Body = () => {
   const [defaultList, setDefaultList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [search, setSearch] = useState([]);
 
   const fetchdata = async () => {
     const data = await fetch(
@@ -19,6 +20,7 @@ const Body = () => {
         ?.restaurants;
     setListOfRes(restaurants);
     setDefaultList(restaurants);
+    setSearch(restaurants);
   };
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const Body = () => {
               const searchResult = listOfRes.filter((res) =>
                 res.info.name.includes(searchText)
               );
-              setListOfRes(searchResult);
+              setSearch(searchResult);
             }}
           >
             Search
@@ -52,10 +54,10 @@ const Body = () => {
         <div className="filter">
           <button
             onClick={() => {
-              const filterRes = listOfRes.filter(
+              const filterRes = defaultList.filter(
                 (res) => res.info.avgRating > 4.4
               );
-              setListOfRes(filterRes);
+              setSearch(filterRes);
               setIsFiltered(true);
             }}
           >
@@ -68,7 +70,7 @@ const Body = () => {
         >
           <button
             onClick={() => {
-              setListOfRes(defaultList);
+              setSearch(defaultList);
               setIsFiltered(false);
             }}
           >
@@ -78,7 +80,7 @@ const Body = () => {
       </div>
 
       <div className="res-container">
-        {listOfRes.map((data) => (
+        {search.map((data) => (
           <ResCard key={data.info.id} resData={data} />
         ))}
       </div>

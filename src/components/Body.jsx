@@ -1,11 +1,25 @@
 import ResCard from "./ResCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 
 const Body = () => {
-  const [listOfRes, setListOfRes] = useState(resList);
-  const [defaultList] = useState(resList);
+  const [listOfRes, setListOfRes] = useState([]);
+  const [defaultList, setDefaultList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
+  useEffect(() => {
+    fetchdata();
+  }, []);
+  const fetchdata = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json);
+    const restaurants =
+      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+    setListOfRes(restaurants);
+    setDefaultList(restaurants);
+  };
   return (
     <div>
       <div style={{ display: "flex" }}>

@@ -33,7 +33,7 @@ const Body = () => {
 
       <div className="res-container">
         {listOfRes.map((data) => (
-          <ResCard resData={data} />
+          <ResCard key={data.info.id} resData={data} />
         ))}
       </div>
     </div>

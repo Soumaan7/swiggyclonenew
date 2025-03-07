@@ -6,6 +6,7 @@ const Body = () => {
   const [listOfRes, setListOfRes] = useState([]);
   const [defaultList, setDefaultList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [searchText, setSearchText] = useState("");
 
   const fetchdata = async () => {
     const data = await fetch(
@@ -29,6 +30,25 @@ const Body = () => {
   ) : (
     <div>
       <div style={{ display: "flex" }}>
+        <div className="search">
+          <input
+            type="text"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              const searchResult = listOfRes.filter((res) =>
+                res.info.name.includes(searchText)
+              );
+              setListOfRes(searchResult);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <div className="filter">
           <button
             onClick={() => {

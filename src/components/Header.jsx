@@ -2,7 +2,8 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
-  const [buttonValue, setButtonValue] = useState("login");
+  let [buttonValue, setButtonValue] = useState("login");
+
   return (
     <div className="header">
       <div className="img-container">

@@ -4,7 +4,7 @@ class UserClass extends React.Component {
     super(props);
     this.state = {
       count: 1,
-      count1: 2,
+      count1: 1,
     };
   }
   render() {
@@ -13,6 +13,16 @@ class UserClass extends React.Component {
         <h1>{this.props.name}</h1>
         <h2>{this.state.count}</h2>
         <h2>{this.state.count1}</h2>
+        <button
+          onClick={() => {
+            this.setState({
+              count: this.state.count + 1,
+              count1: this.state.count1 + 1,
+            });
+          }}
+        >
+          increase count
+        </button>
       </div>
     );
   }
